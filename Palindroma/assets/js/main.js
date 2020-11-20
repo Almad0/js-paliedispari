@@ -1,32 +1,19 @@
-// CHIEDO ALL'UTENTE LA PAROLA E INSERISCO I SINGOLI CARATTERI IN UN ARRAY
+// CHIEDO ALL'UTENTE LA PAROLA
 var userWord = prompt("Inserisci una parola").toLowerCase();
-var word = userWord.split('');
 
-//DIVIDO L'ARRAY PAROLA A META' E RIBALTO L'ARRAY DI DESTRA
-var meta = Math.floor(word.length / 2);
-var sinistra = word.splice(0,meta);
-var destra = word.splice(-meta);
+console.log(userWord);
 
-// console.log(sinistra); console.log(destra);
-
-destra.reverse(); // console.log(destra);
-
-// COMPARO LE SINGOLE LETTERE
-var controllo = false;
-for (var i = 0; i < sinistra.length; i++) {
-  if (sinistra[i] == destra [i]) {
-    controllo = true;
-  } else {
-    controllo = false;
-  }
+// FUNZIONE PER RIBALTARE LA STRINGA
+function reWord(word) {
+    return word.split("").reverse().join("");
 }
 
-//LA SECONDA CONDIZIONE è NECESSARIA, ALTRIMENTI BASTA UNA SOLA LETTERA UGUALE PER TRUE
-if (controllo && i==sinistra.length ) {
-  console.log("La parola è palindroma!");
+var reverseWord = reWord(userWord);
+
+// console.log(reverseWord);
+
+if (userWord == reverseWord) {
+  console.log("La parola è palindroma");
 } else {
-  console.log("La Parola non è palindroma");
+  console.log("La parola NON è palindroma");
 }
-
-// VALIDO CON LE PAROLE, PER LE FRASI BISOGNA PRIMA ELIMINARE DAGLI ARRAY
-// I CARATTERI "VUOTI", CIOE' GLI SPAZI
